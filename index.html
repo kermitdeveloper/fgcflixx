@@ -1125,6 +1125,25 @@
             }
         });
     </script>
+<!-- Elemento de áudio escondido -->
+<audio id="bgMusic" autoplay loop>
+  <source src="SpotiDownloader.com - LoFi Page Turner - LO-FI BEATS.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+  // Garante que o áudio comece após qualquer clique do usuário
+  const audio = document.getElementById('bgMusic');
+
+  // Alguns navegadores só liberam o som após uma interação
+  document.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(e => {
+        console.log("Autoplay bloqueado pelo navegador.");
+      });
+    }
+  });
+</script>
 
     <!-- Schema.org structured data for SEO -->
     <script type="application/ld+json">
